@@ -1,0 +1,88 @@
+.badge {
+  display: flex;
+  flex-direction: column;
+  padding: var(--s-4);
+  border-radius: var(--r-card);
+  border: 1px solid var(--line-soft);
+  background: var(--surface);
+}
+
+.badge[data-unlocked] {
+  border-color: color-mix(in srgb, var(--lit) 34%, transparent);
+}
+
+.badge__figure {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Tall continents are height-limited, so give them room to read. */
+  height: 88px;
+  margin-bottom: var(--s-3);
+}
+
+/* Both figures are the same dot material as the map; only the shape differs. */
+.badge__glyph {
+  width: 100%;
+  height: 100%;
+}
+
+.badge__glyph circle {
+  fill: var(--dot-off);
+}
+
+.badge__glyph circle.on {
+  fill: var(--lit);
+}
+
+.badge__dots {
+  display: grid;
+  gap: 4px;
+  width: 100%;
+}
+
+.badge__dots > span {
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--dot-off);
+}
+
+.badge__dots > span[data-on] {
+  background: var(--lit);
+}
+
+.badge__title {
+  margin: 0;
+  font-size: var(--t-sm);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text-dim);
+}
+
+.badge[data-unlocked] .badge__title {
+  color: var(--text);
+}
+
+.badge__meta {
+  margin: 2px 0 0;
+  font-family: var(--font-data);
+  font-size: var(--t-xs);
+  font-feature-settings: 'tnum';
+  color: var(--text-mute);
+}
+
+.badge__meta b {
+  font-weight: 600;
+  color: var(--lit);
+}
+
+.badge__note {
+  margin: var(--s-2) 0 0;
+  font-size: var(--t-2xs);
+  line-height: 1.4;
+  color: var(--text-mute);
+}
+
+.badge[data-unlocked] .badge__note {
+  font-family: var(--font-data);
+  letter-spacing: 0.02em;
+}

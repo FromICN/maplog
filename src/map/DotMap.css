@@ -1,0 +1,16 @@
+.dotmap {
+  position: absolute;
+  inset: 0;
+  touch-action: none;
+  overscroll-behavior: contain;
+  cursor: grab;
+  background: var(--ink);
+}
+
+.dotmap:active {
+  cursor: grabbing;
+}
+
+.dotmap__canvas {
+  display: block;
+}

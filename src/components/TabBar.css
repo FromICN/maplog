@@ -1,0 +1,31 @@
+.tabbar {
+  flex: 0 0 auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  height: calc(var(--tabbar-h) + env(safe-area-inset-bottom));
+  padding-bottom: env(safe-area-inset-bottom);
+  background: color-mix(in srgb, var(--ink) 88%, transparent);
+  backdrop-filter: blur(16px);
+  border-top: 1px solid var(--line-soft);
+  z-index: 40;
+}
+
+.tabbar__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  color: var(--text-mute);
+  transition: color 0.15s ease;
+}
+
+.tabbar__item[aria-current='page'] {
+  color: var(--lit);
+}
+
+.tabbar__label {
+  font-size: var(--t-2xs);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}

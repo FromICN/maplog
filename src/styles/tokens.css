@@ -1,0 +1,73 @@
+/*
+ * MapLog design tokens
+ * Concept: a night departure board. Dots are the only material —
+ * the map lights them up, and every meter in the UI is built from the same dots.
+ */
+
+:root {
+  color-scheme: dark;
+
+  /* ---- Surfaces: night with a blue undertone, never pure black ---- */
+  --ink: #0b0f14;
+  --surface: #131a21;
+  --surface-2: #1b242d;
+  --surface-3: #232e39;
+  --line: #242f3a;
+  --line-soft: #1a222b;
+
+  /* ---- Text ---- */
+  --text: #e9eef3;
+  --text-dim: #8595a5;
+  --text-mute: #5b6975;
+
+  /* ---- Dot material ----
+   * `off` is land you haven't reached. The lit ramp is one hue at four
+   * brightnesses, stepped by how many cities you've logged in that country.
+   * Values are pre-composited over --ink so canvas draws them flat.
+   */
+  --dot-off: #2b3641;
+  --lit-1: #725319;
+  --lit-2: #a2731b;
+  --lit-3: #d3931e;
+  --lit-4: #ffb020;
+  --lit: #ffb020;
+
+  /* Reserved for one job only: places you want to go. */
+  --wish: #4dd0e1;
+
+  --danger: #ff6b5e;
+
+  /* ---- Type ---- */
+  /* The subset covers everything this app ships; a syllable typed into a search
+     box that falls outside it lands on the platform's Korean face, not on tofu. */
+  --font-ui: 'Pretendard Variable', -apple-system, BlinkMacSystemFont, system-ui,
+    'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', 'Segoe UI', Roboto, sans-serif;
+  --font-data: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --t-hero: 3.25rem;
+  --t-xl: 2rem;
+  --t-lg: 1.25rem;
+  --t-md: 1rem;
+  --t-sm: 0.875rem;
+  --t-xs: 0.75rem;
+  --t-2xs: 0.6875rem;
+
+  /* ---- Space ---- */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 20px;
+  --s-6: 24px;
+  --s-8: 32px;
+  --s-10: 40px;
+
+  /* ---- Shape ---- */
+  --r-card: 16px;
+  --r-chip: 10px;
+  --r-pill: 999px;
+
+  /* ---- Chrome ---- */
+  --tabbar-h: 58px;
+  --app-max: 560px;
+}

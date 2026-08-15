@@ -1,0 +1,121 @@
+.mapscreen {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+/* Zoomed in, the dot field runs under the count — it needs its own ground. */
+.mapscreen__stat {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: calc(env(safe-area-inset-top) + var(--s-5)) var(--s-5) var(--s-6);
+  background: linear-gradient(to bottom, var(--ink) 42%, transparent);
+  pointer-events: none;
+}
+
+.mapscreen__count {
+  margin: var(--s-1) 0 0;
+  display: flex;
+  align-items: baseline;
+  gap: var(--s-2);
+  font-family: var(--font-data);
+  font-feature-settings: 'tnum';
+}
+
+.mapscreen__now {
+  font-size: var(--t-hero);
+  font-weight: 600;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  color: var(--lit);
+}
+
+.mapscreen__total {
+  font-size: var(--t-md);
+  font-weight: 400;
+  color: var(--text-mute);
+}
+
+.mapscreen__pct {
+  margin-left: var(--s-2);
+  padding: 2px 8px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-pill);
+  font-size: var(--t-xs);
+  font-weight: 500;
+  color: var(--text-dim);
+}
+
+.mapscreen__bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: transform 0.28s cubic-bezier(0.3, 0.8, 0.3, 1), opacity 0.2s ease;
+}
+
+/* Reading detail on the map wins over the summary — it steps aside on zoom. */
+.mapscreen__bottom[data-hidden] {
+  transform: translateY(100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.mapscreen__action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s-3);
+  padding: var(--s-4) var(--s-5);
+}
+
+.mapscreen__hint {
+  margin: 0;
+  font-size: var(--t-sm);
+  color: var(--text-mute);
+  text-align: center;
+}
+
+.mapscreen__buttons {
+  display: flex;
+  gap: var(--s-2);
+}
+
+.mapscreen__add,
+.mapscreen__photos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-2);
+  height: 46px;
+  padding: 0 var(--s-5);
+  border-radius: var(--r-pill);
+  font-size: var(--t-sm);
+  font-weight: 600;
+  transition: filter 0.15s ease;
+}
+
+.mapscreen__add {
+  background: var(--lit);
+  color: var(--ink);
+}
+
+.mapscreen__photos {
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--surface-2) 88%, transparent);
+  backdrop-filter: blur(10px);
+  color: var(--text-dim);
+  font-weight: 500;
+}
+
+.mapscreen__add:active,
+.mapscreen__photos:active {
+  filter: brightness(0.9);
+}
+
+.mapscreen__summary {
+  padding: 0 var(--s-5) var(--s-6);
+  background: linear-gradient(to bottom, transparent, var(--ink) 18%);
+}

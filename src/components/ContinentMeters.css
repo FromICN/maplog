@@ -1,0 +1,30 @@
+.meters {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+
+.meters__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.meters__name {
+  font-size: var(--t-xs);
+  font-weight: 500;
+  color: var(--text-dim);
+}
+
+.meters__count {
+  font-family: var(--font-data);
+  font-size: var(--t-xs);
+  font-feature-settings: 'tnum';
+  color: var(--text-mute);
+}
+
+.meters__count b {
+  font-weight: 600;
+  color: var(--text);
+}

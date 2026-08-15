@@ -1,0 +1,52 @@
+.badges {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.badges__scroll {
+  height: 100%;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  padding: calc(env(safe-area-inset-top) + var(--s-5)) var(--s-5) var(--s-8);
+}
+
+.badges__count {
+  margin: var(--s-1) 0 0;
+  display: flex;
+  align-items: baseline;
+  gap: var(--s-2);
+  font-family: var(--font-data);
+  font-feature-settings: 'tnum';
+}
+
+.badges__now {
+  font-size: var(--t-hero);
+  font-weight: 600;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  color: var(--lit);
+}
+
+.badges__total {
+  font-size: var(--t-md);
+  color: var(--text-mute);
+}
+
+.badges__group {
+  margin-top: var(--s-8);
+}
+
+.badges__h2 {
+  margin: 0 0 var(--s-4);
+  font-size: var(--t-md);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.badges__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--s-3);
+}

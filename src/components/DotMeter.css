@@ -1,0 +1,29 @@
+.dotmeter {
+  display: flex;
+  gap: 2px;
+}
+
+.dotmeter[data-wrap] {
+  flex-wrap: wrap;
+  row-gap: 4px;
+}
+
+.dotmeter__dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--dot-off);
+}
+
+.dotmeter__dot[data-level='1'] {
+  background: var(--lit-1);
+}
+.dotmeter__dot[data-level='2'] {
+  background: var(--lit-2);
+}
+.dotmeter__dot[data-level='3'] {
+  background: var(--lit-3);
+}
+.dotmeter__dot[data-level='4'] {
+  background: var(--lit-4);
+}

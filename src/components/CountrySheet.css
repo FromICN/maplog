@@ -1,0 +1,136 @@
+.sheet__scrim {
+  position: absolute;
+  inset: 0;
+  background: color-mix(in srgb, var(--ink) 55%, transparent);
+  z-index: 20;
+  cursor: default;
+}
+
+.sheet {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 21;
+  padding: var(--s-5);
+  padding-bottom: calc(var(--s-5) + env(safe-area-inset-bottom));
+  background: var(--surface);
+  border-top: 1px solid var(--line);
+  border-radius: var(--r-card) var(--r-card) 0 0;
+  animation: sheet-rise 0.2s cubic-bezier(0.2, 0.8, 0.3, 1);
+}
+
+@keyframes sheet-rise {
+  from {
+    transform: translateY(100%);
+  }
+}
+
+.sheet__head {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s-3);
+}
+
+.sheet__title {
+  flex: 1;
+  min-width: 0;
+}
+
+.sheet__name {
+  margin: 0;
+  font-size: var(--t-lg);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.sheet__meta {
+  margin: var(--s-1) 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+  font-size: var(--t-xs);
+  color: var(--text-mute);
+}
+
+.sheet__meta > span + span::before {
+  content: '·';
+  margin-right: var(--s-2);
+}
+
+.sheet__code {
+  font-family: var(--font-data);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--text-dim);
+}
+
+.sheet__close {
+  color: var(--text-mute);
+  padding: var(--s-1);
+}
+
+.sheet__cities {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  width: 100%;
+  margin-top: var(--s-3);
+  padding: var(--s-3) var(--s-4);
+  border-radius: var(--r-chip);
+  border: 1px solid var(--line);
+  background: var(--surface-2);
+  font-size: var(--t-sm);
+  color: var(--text-dim);
+}
+
+.sheet__cities > span:first-child {
+  flex: 1;
+  text-align: left;
+}
+
+.sheet__citycount {
+  font-family: var(--font-data);
+  font-feature-settings: 'tnum';
+  color: var(--text);
+}
+
+.sheet__actions {
+  margin-top: var(--s-5);
+  display: flex;
+  gap: var(--s-2);
+}
+
+.action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-2);
+  height: 48px;
+  border-radius: var(--r-chip);
+  border: 1px solid var(--line);
+  background: var(--surface-2);
+  color: var(--text-dim);
+  font-size: var(--t-sm);
+  font-weight: 500;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.action--visit {
+  flex: 1;
+}
+
+.action--wish {
+  width: 48px;
+}
+
+.action--visit[aria-pressed='true'] {
+  background: var(--lit);
+  border-color: var(--lit);
+  color: var(--ink);
+}
+
+.action--wish[aria-pressed='true'] {
+  border-color: var(--wish);
+  color: var(--wish);
+}
