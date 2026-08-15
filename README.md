@@ -4,6 +4,27 @@
 
 기록은 브라우저의 IndexedDB에만 저장됩니다. 계정도 서버도 없습니다.
 
+## 안드로이드 앱
+
+Capacitor로 감싼 네이티브 앱도 같은 소스에서 나옵니다. 웹 자산을 APK 안에 담기
+때문에 첫 실행부터 완전히 오프라인이고, GitHub Pages와 무관하게 동작합니다.
+
+```bash
+npm run app:apk
+```
+
+`android/app/build/outputs/apk/debug/app-debug.apk`가 나옵니다(약 5MB). 디버그
+서명이라 사이드로드로 바로 설치됩니다. 스토어용 릴리스 빌드는 별도 키스토어가
+필요합니다.
+
+빌드에는 JDK 17과 안드로이드 SDK(platform 34, build-tools 34)가 필요하고,
+`android/local.properties`에 `sdk.dir`을 적어야 합니다. 이 파일은 커밋하지
+않으며 **경로에 백슬래시 대신 슬래시**를 써야 합니다 — Java properties에서
+백슬래시는 이스케이프 문자라 경로가 깨집니다.
+
+런처 아이콘은 `npm run data:icons`가 웹 아이콘과 같은 도트 필드로 생성해
+`android/app/src/main/res/mipmap-*`에 덮어씁니다.
+
 ## 배포
 
 `main`에 푸시하면 GitHub Actions가 빌드해서 GitHub Pages로 올립니다
