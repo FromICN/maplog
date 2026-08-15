@@ -4,6 +4,23 @@
 
 기록은 브라우저의 IndexedDB에만 저장됩니다. 계정도 서버도 없습니다.
 
+## 배포
+
+`main`에 푸시하면 GitHub Actions가 빌드해서 GitHub Pages로 올립니다
+(`.github/workflows/deploy.yml`). 저장소 설정에서 **Pages → Source를 GitHub
+Actions**로 지정해 두어야 합니다.
+
+프로젝트 사이트는 `/<repo>/` 하위 경로로 서비스되므로 워크플로가 저장소 이름에서
+`VITE_BASE`를 만들어 넘깁니다. `<id>.github.io` 저장소인 경우에는 루트(`/`)를
+씁니다. 로컬에서 하위 경로를 확인하려면:
+
+```bash
+npm run preview:pages
+```
+
+폰트는 `src/assets/fonts/`로 생성해 Vite가 해시를 붙이고 base를 반영하게 했습니다.
+`public/`에 두고 절대 경로로 참조하면 하위 경로 배포에서 404가 납니다.
+
 ## 개발
 
 ```bash

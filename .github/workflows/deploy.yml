@@ -28,11 +28,22 @@ jobs:
 
       - run: npm ci
 
+      # A project site is served from /<repo>/, but a user site
+      # (<owner>.github.io) is served from the domain root.
+      - name: Work out the base path
+        id: base
+        run: |
+          repo=$(echo "${{ github.event.repository.name }}" | tr '[:upper:]' '[:lower:]')
+          owner=$(echo "${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]')
+          if [ "$repo" = "$owner.github.io" ]; then
+            echo "path=/" >> "$GITHUB_OUTPUT"
+          else
+            echo "path=/$repo/" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Build
-        # Project sites live under /<repo>/, so the base path comes from the
-        # repository name rather than being hard-coded.
         env:
-          VITE_BASE: /${{ github.event.repository.name }}/
+          VITE_BASE: ${{ steps.base.outputs.path }}
         run: npm run build
 
       - uses: actions/configure-pages@v5

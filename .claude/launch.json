@@ -9,8 +9,8 @@
     },
     {
       "name": "maplog-preview",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "preview"],
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["vite", "preview", "--base", "/maplog/", "--port", "4173"],
       "port": 4173
     }
   ]
