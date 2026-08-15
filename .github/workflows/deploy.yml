@@ -33,13 +33,17 @@ jobs:
       - name: Work out the base path
         id: base
         run: |
-          repo=$(echo "${{ github.event.repository.name }}" | tr '[:upper:]' '[:lower:]')
-          owner=$(echo "${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]')
-          if [ "$repo" = "$owner.github.io" ]; then
+          repo="${{ github.event.repository.name }}"
+          # Pages paths keep the repository's capitalisation — /MapLog/, not
+          # /maplog/ — so only the user-site test is case-folded.
+          lower_repo=$(echo "$repo" | tr '[:upper:]' '[:lower:]')
+          lower_owner=$(echo "${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]')
+          if [ "$lower_repo" = "$lower_owner.github.io" ]; then
             echo "path=/" >> "$GITHUB_OUTPUT"
           else
             echo "path=/$repo/" >> "$GITHUB_OUTPUT"
           fi
+          echo "Building for base: $(grep path "$GITHUB_OUTPUT" | tail -1)"
 
       - name: Build
         env:
@@ -47,6 +51,9 @@ jobs:
         run: npm run build
 
       - uses: actions/configure-pages@v5
+        with:
+          # Turns Pages on with the Actions source, so no manual setup step.
+          enablement: true
 
       - uses: actions/upload-pages-artifact@v3
         with:
