@@ -12,7 +12,7 @@
     "data:icons": "node scripts/build-icons.mjs",
     "lint": "oxlint",
     "preview": "vite preview",
-    "preview:pages": "vite preview --base /MapLog/"
+    "preview:pages": "vite preview --base /maplog/"
   },
   "dependencies": {
     "@fontsource/ibm-plex-mono": "^5.3.0",
